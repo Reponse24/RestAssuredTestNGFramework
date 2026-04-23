@@ -41,13 +41,11 @@ public class PlaylistTestsRevised extends BaseTest{
         assertThat(responsePlaylist.getName(), equalTo(requestPlaylist.getName()));
         assertThat(responsePlaylist.getDescription(), equalTo(requestPlaylist.getDescription()));
         assertThat(responsePlaylist.get_public(), equalTo(requestPlaylist.get_public()));
-
     }
     // benefits: However, these two below methods can be use in separate classes, not only for this API/ they can be reused in other classes
     @Step
     public void assertStatusCode(int actualStatusCode, StatusCode statusCode){
         assertThat(actualStatusCode, equalTo(statusCode.code)); //accessing a constant variable
-
     }
     @Step
     public void assertError(Error responseErr, StatusCode statusCode){
