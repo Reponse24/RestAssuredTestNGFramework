@@ -62,7 +62,6 @@ public class PlaylistTestsRevised extends BaseTest{
         Response response = PlaylistApi.post(requestPlaylist);
         assertStatusCode(response.statusCode(), StatusCode.CODE_201);
         assertPlaylistEqual(response.as(Playlist.class), requestPlaylist);
-
         }
     @Story("Create Playlist Story")
     @Test
@@ -78,7 +77,6 @@ public class PlaylistTestsRevised extends BaseTest{
         Playlist requestPlaylist = playlistBuilder(generateName(), generateDescription(), false);
         Response response = PlaylistApi.update(DataLoader.getInstance().getUpdatePlaylistId(), requestPlaylist);
         assertStatusCode(response.statusCode(),StatusCode.CODE_200);
-
     }
     @Test
     public void testCreatePlaylistWithoutName(){
@@ -94,8 +92,7 @@ public class PlaylistTestsRevised extends BaseTest{
         Response response = PlaylistApi.post(invalid_token, requestPlaylist);
         assertStatusCode(response.statusCode(),StatusCode.CODE_401);
         assertError(response.as(Error.class), StatusCode.CODE_401);
-
     }
 }
-
-//The command that we run in parallel inavoiding hard coding the URIs is: mvn test -DBASE_URI="https://api.spotify.com" -DACCOUNT_BASE_URI="https://accounts.spotify.com"
+//The command that we run in parallel inavoiding hard coding the URIs is:
+//mvn test -DBASE_URI="https://api.spotify.com" -DACCOUNT_BASE_URI="https://accounts.spotify.com"
